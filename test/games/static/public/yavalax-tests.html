@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yavalax test</title>
+    <link rel="stylesheet" href="qunit-2.6.1.css">
+    <script src="qunit-2.6.1.js"></script>
+    <script type="module">
+        import lib from "/lib/openxum-core/index.mjs";
+        window.OpenXum = lib.OpenXum;
+    </script>
+    <script>
+        QUnit.test("move tests", function (assert) {
+            let move = new window.OpenXum.Yavalax.Move(4, 2, 0);
+            assert.ok(move.column() === 4 && move.line() === 2 && move.color() === 0);
+        });
+
+        QUnit.test("color tests", function (assert) {
+            let e = new window.OpenXum.Yavalax.Engine();
+            assert.ok(e.current_color() === 0);
+            assert.ok(e.alt_color() === 1);
+        });
+
+        QUnit.test("name game test", function (assert) {
+            let e = new window.OpenXum.Yavalax.Engine();
+            assert.ok(e.get_name() === 'Yavalax');
+        });
+
+        QUnit.test("valid move test", function (assert) {
+            let e = new window.OpenXum.Yavalax.Engine();
+            assert.ok(e._valid_move(0, 13, 1) === false);
+            assert.ok(e._valid_move(5, 7, 1) === true);
+            let m = new window.OpenXum.Yavalax.Move(5, 7, 1);
+            e.move(m);
+            assert.ok(e._valid_move(5, 7, 1) === false);
+        });
+
+        QUnit.test("test full", function (assert) {
+            let e = new window.OpenXum.Yavalax.Engine();
+            assert.ok(e._check_full() === false);
+        });
+
+        QUnit.test("test change player", function (assert) {
+            let e = new window.OpenXum.Yavalax.Engine();
+            e.cptwhite = 1;
+            e._change_player();
+            assert.ok(e.cptwhite === -1);
+            assert.ok(e.cptblue === 0);
+        });
+
+    </script>
+</head>
+<body><div id="qunit"></div></body>
+</html>
