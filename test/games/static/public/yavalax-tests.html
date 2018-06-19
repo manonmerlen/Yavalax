@@ -48,6 +48,20 @@
             assert.ok(e.cptblue === 0);
         });
 
+        QUnit.test("test check5", function (assert) {
+            let e = new window.OpenXum.Yavalax.Engine();
+            assert.ok(e._check_5(4, 5, 1) === true);
+            let m = new window.OpenXum.Yavalax.Move(4, 5, 1);
+            e.move(m);
+            m = new window.OpenXum.Yavalax.Move(4, 6, 1);
+            e.move(m);
+            m = new window.OpenXum.Yavalax.Move(4, 3, 1);
+            e.move(m);
+            m = new window.OpenXum.Yavalax.Move(4, 4, 1);
+            e.move(m);
+            assert.ok(e._check_5(4, 7, 1) === false);
+        });
+
     </script>
 </head>
 <body><div id="qunit"></div></body>
