@@ -60,6 +60,25 @@
             m = new window.OpenXum.Yavalax.Move(4, 4, 1);
             e.move(m);
             assert.ok(e._check_5(4, 7, 1) === false);
+            assert.ok(e._check_5(4, 7, 0) === true);
+        });
+
+        QUnit.test("test double 4", function (assert) {
+            let e = new window.OpenXum.Yavalax.Engine();
+            assert.ok(e._check_double_4(4, 5, 1) === 0);
+            let m = new window.OpenXum.Yavalax.Move(4, 5, 1);
+            e.move(m);
+            m = new window.OpenXum.Yavalax.Move(5, 5, 1);
+            e.move(m);
+            m = new window.OpenXum.Yavalax.Move(6, 5, 1);
+            e.move(m);
+            m = new window.OpenXum.Yavalax.Move(7, 4, 1);
+            e.move(m);
+            m = new window.OpenXum.Yavalax.Move(7, 6, 1);
+            e.move(m);
+            m = new window.OpenXum.Yavalax.Move(7, 7, 1);
+            e.move(m);
+            assert.ok(e._check_double_4(7, 5, 1) === 2);
         });
 
     </script>
