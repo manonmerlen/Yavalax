@@ -2,11 +2,7 @@ import lib from '../lib/openxum-core/openxum';
 
 let e = new lib.OpenXum.Yavalax.Engine(lib.OpenXum.Yavalax.GameType.STANDARD, lib.OpenXum.Yavalax.Color.WHITE);
 let p1 = new lib.OpenXum.RandomPlayer(lib.OpenXum.Yavalax.Color.WHITE, e);
-//let p1 = new lib.OpenXum.Yavalax.IA.IAYavalaxPlayer(lib.OpenXum.Yavalax.Color.WHITE, e);
-//let p1 = new lib.OpenXum.MCTSPlayer(lib.OpenXum.Yavalax.Color.WHITE, e);
-//let p2 = new lib.OpenXum.RandomPlayer(lib.OpenXum.Yavalax.Color.BLUE, e);
-//let p2 = new lib.OpenXum.MCTSPlayer(lib.OpenXum.Yavalax.Color.BLUE, e);
-let p2 = new lib.OpenXum.Yavalax.IA.IAYavalaxPlayer(lib.OpenXum.Yavalax.Color.BLUE, e);
+let p2 = new lib.OpenXum.RandomPlayer(lib.OpenXum.Paletto.Color.BLUE, e);
 let p = p1;
 let moves = [];
 
